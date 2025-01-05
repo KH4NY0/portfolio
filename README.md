@@ -8,10 +8,9 @@ A modern, responsive portfolio website to showcase my skills, projects, and prof
 
 ### Features
 
-Responsive design for all devices
-Project showcase with dynamic filtering
-About section with professional details
-Integrated contact form with email functionality
+Responsive design for all devices\
+About section with professional details\
+Integrated contact form with email functionality\
 Optimized for speed and search engines
 
 ---

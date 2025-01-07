@@ -34,31 +34,69 @@ export const BackgroundGradientAnimation = ({
   containerClassName?: string;
 }) => {
   const interactiveRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
 
   const [curX, setCurX] = useState(0);
   const [curY, setCurY] = useState(0);
   const [tgX, setTgX] = useState(0);
   const [tgY, setTgY] = useState(0);
+  
+  // Set mounted state after component mounts
   useEffect(() => {
-    document.body.style.setProperty(
-      "--gradient-background-start",
-      gradientBackgroundStart
-    );
-    document.body.style.setProperty(
-      "--gradient-background-end",
-      gradientBackgroundEnd
-    );
-    document.body.style.setProperty("--first-color", firstColor);
-    document.body.style.setProperty("--second-color", secondColor);
-    document.body.style.setProperty("--third-color", thirdColor);
-    document.body.style.setProperty("--fourth-color", fourthColor);
-    document.body.style.setProperty("--fifth-color", fifthColor);
-    document.body.style.setProperty("--pointer-color", pointerColor);
-    document.body.style.setProperty("--size", size);
-    document.body.style.setProperty("--blending-value", blendingValue);
+    setMounted(true);
   }, []);
 
+  // Only run this effect after component is mounted
   useEffect(() => {
+    if (!mounted) return;
+
+    const updateCSSVariables = () => {
+      document.body.style.setProperty(
+        "--gradient-background-start",
+        gradientBackgroundStart
+      );
+      document.body.style.setProperty(
+        "--gradient-background-end",
+        gradientBackgroundEnd
+      );
+      document.body.style.setProperty("--first-color", firstColor);
+      document.body.style.setProperty("--second-color", secondColor);
+      document.body.style.setProperty("--third-color", thirdColor);
+      document.body.style.setProperty("--fourth-color", fourthColor);
+      document.body.style.setProperty("--fifth-color", fifthColor);
+      document.body.style.setProperty("--pointer-color", pointerColor);
+      document.body.style.setProperty("--size", size);
+      document.body.style.setProperty("--blending-value", blendingValue);
+    };
+
+    updateCSSVariables();
+
+    // Cleanup function to remove CSS variables
+    return () => {
+      const variablesToRemove = [
+        "--gradient-background-start",
+        "--gradient-background-end",
+        "--first-color",
+        "--second-color",
+        "--third-color",
+        "--fourth-color",
+        "--fifth-color",
+        "--pointer-color",
+        "--size",
+        "--blending-value",
+      ];
+      
+      variablesToRemove.forEach(variable => {
+        document.body.style.removeProperty(variable);
+      });
+    };
+  }, [mounted, gradientBackgroundStart, gradientBackgroundEnd, firstColor, 
+      secondColor, thirdColor, fourthColor, fifthColor, pointerColor, 
+      size, blendingValue]);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     function move() {
       if (!interactiveRef.current) {
         return;
@@ -71,7 +109,7 @@ export const BackgroundGradientAnimation = ({
     }
 
     move();
-  }, [tgX, tgY]);
+  }, [tgX, tgY, curX, curY, mounted]);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (interactiveRef.current) {
@@ -83,8 +121,9 @@ export const BackgroundGradientAnimation = ({
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
+    if (!mounted) return;
     setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
-  }, []);
+  }, [mounted]);
 
   return (
     <div

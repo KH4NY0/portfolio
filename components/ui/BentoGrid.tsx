@@ -6,11 +6,11 @@ import Lottie from "react-lottie";
 
 import { cn } from "@/lib/utils";
 
-
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
+import Image from "next/image";
 
 export const BentoGrid = ({
   className,
@@ -37,7 +37,6 @@ export const BentoGridItem = ({
   id,
   title,
   description,
-  //   remove unecessary things here
   img,
   imgClassName,
   titleClassName,
@@ -75,12 +74,10 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-      
         "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
         className
       )}
       style={{
-      
         background: "rgb(4,7,29)",
         backgroundColor:
           "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
@@ -90,9 +87,10 @@ export const BentoGridItem = ({
       <div className={`${id === 6 && "flex justify-center"} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
-            <img
+            <Image
               src={img}
               alt={img}
+              fill
               className={cn(imgClassName, "object-cover object-center ")}
             />
           )}
@@ -102,11 +100,12 @@ export const BentoGridItem = ({
             } `}
         >
           {spareImg && (
-            <img
+            <Image
               src={spareImg}
               alt={spareImg}
-              //   width={220}
-              className="object-cover object-center w-full h-full"
+              width={256}
+              height={256}
+              className="object-cover"
             />
           )}
         </div>
@@ -174,7 +173,7 @@ export const BentoGridItem = ({
                 className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
                   }`}
               >
-                {/* <img src="/confetti.gif" alt="confetti" /> */}
+            
                 <Lottie options={defaultOptions} height={200} width={400} />
               </div>
 

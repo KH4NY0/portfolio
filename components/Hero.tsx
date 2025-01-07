@@ -1,6 +1,7 @@
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import Shimmer from "./ui/Shimmer";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -43,7 +44,7 @@ const Hero = () => {
             Hi! I&apos;m Lukhanyo, a Software Developer based in Roodeport.
           </p>
 
-          <a
+          <Link
             href="https://calendly.com/d/cqxq-z7z-57r/one-off-meeting"
             target="_blank"  
           >
@@ -51,7 +52,7 @@ const Hero = () => {
               title="Schedule a call"
               position="right"
             />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

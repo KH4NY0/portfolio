@@ -28,7 +28,7 @@ const Approach = () => {
         <Card
           title="Development & Progress Updates"
           icon={<AceternityIcon order="Phase 2" />}
-          des="Once the plan is finalized, development begins. I focus on transforming initial concepts into polished code while keeping you informed at every stage of the process."
+          des="Implementation begins with an iterative development approach, ensuring transparency through regular progress updates and milestone reviews. You'll have continuous visibility into the development process with opportunities for feedback and refinement at each stage."
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -48,7 +48,7 @@ const Approach = () => {
         <Card
           title="Deployment"
           icon={<AceternityIcon order="Phase 3" />}
-          des="Then i test your website ensuring it meets the agreed requirements and is ready for deployment."
+          des="Prior to launch, we conduct comprehensive testing across multiple environments and devices. Our thorough quality assurance process includes performance optimization, security validation, and user acceptance testing to ensure your solution exceeds expectations."
         >
           <CanvasRevealEffect
             animationSpeed={3}

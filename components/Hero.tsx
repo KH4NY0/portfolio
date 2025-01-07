@@ -1,6 +1,3 @@
-import { FaLocationArrow } from "react-icons/fa6";
-
-
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import Shimmer from "./ui/Shimmer";
@@ -46,7 +43,10 @@ const Hero = () => {
             Hi! I&apos;m Lukhanyo, a Software Developer based in Roodeport.
           </p>
 
-          <a href="#about">
+          <a
+            href="https://calendly.com/d/cqxq-z7z-57r/one-off-meeting"
+            target="_blank"  
+          >
             <Shimmer
               title="Schedule a call"
               position="right"

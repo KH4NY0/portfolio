@@ -28,7 +28,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
 
   return (
     // change md:grid-cols-3 to md:grid-cols-4, gap-4 to gap-10
-    <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-4 max-w-7xl mx-auto gap-10 ">
+    (<div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-4 max-w-7xl mx-auto gap-10 ">
       {cards.map((card, i) => (
         <Button
           key={i}
@@ -74,7 +74,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
         )}
         animate={{ opacity: selected?.id ? 0.3 : 0 }}
       />
-    </div>
+    </div>)
   );
 };
 

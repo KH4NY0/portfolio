@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const RecentProjects = () => {
   return (
-    <div className="py-20" id="projects">
+    (<div className="py-20" id="projects">
       <h1 className="heading">
         A small selection of{" "}
         <span className="text-purple">recent projects</span>
@@ -28,7 +28,11 @@ const RecentProjects = () => {
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                   style={{ backgroundColor: "#13162D" }}
                 >
-                  <Image src="/bg.png" alt="bgimg" layout="fill" objectFit="cover" />
+                  <Image
+                    src="/bg.png"
+                    alt="bgimg"
+                    fill
+                  />
                 </div>
                 <Image
                   src={item.img}
@@ -63,7 +67,13 @@ const RecentProjects = () => {
                         transform: `translateX(-${5 * index + 2}px)`,
                       }}
                     >
-                      <Image src={icon} alt="icon5" width={32} height={32} className="p-2" />
+                      <Image
+                        src={icon}
+                        alt="icon5"
+                        width={32}
+                        height={32}
+                        className="p-2"
+                      />
                     </div>
                   ))}
                 </div>
@@ -84,7 +94,7 @@ const RecentProjects = () => {
           </div>
         ))}
       </div>
-    </div>
+    </div>)
   );
 };
 

@@ -1,10 +1,15 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
+// Import World component with no SSR
 const World = dynamic(() => import("./Globe").then((m) => m.World), {
   ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-purple"></div>
+    </div>
+  )
 });
 
 const GridGlobe = () => {
@@ -432,4 +437,7 @@ const GridGlobe = () => {
     </div>)
   );
 };
-export default GridGlobe;
+
+export default dynamic(() => Promise.resolve(GridGlobe), {
+  ssr: false
+});

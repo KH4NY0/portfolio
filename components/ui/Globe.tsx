@@ -60,6 +60,9 @@ interface WorldProps {
 
 let numbersOfRings = [0];
 
+// Add check for window object
+const isBrowser = typeof window !== "undefined";
+
 export function Globe({ globeConfig, data }: WorldProps) {
   const [globeData, setGlobeData] = useState<
     | {
@@ -72,6 +75,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     | null
   >(null);
 
+  // Only initialize if in browser
   const globeRef = useRef<ThreeGlobe | null>(null);
 
   const defaultProps = {
@@ -238,11 +242,12 @@ export function WebGLRendererConfig() {
     gl.setSize(size.width, size.height);
     gl.setClearColor(0xffaaff, 0);
   }, []);
-
   return null;
 }
 
 export function World(props: WorldProps) {
+  if (!isBrowser) return null;
+  
   const { globeConfig } = props;
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);

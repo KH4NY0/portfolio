@@ -1,3 +1,5 @@
+'use client'
+
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import Shimmer from "./ui/Shimmer";

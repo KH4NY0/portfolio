@@ -31,7 +31,7 @@ const Footer = () => {
           achieve your goals.
         </p>
         <Link
-          href="https://calendly.com/d/cqxq-z7z-57r/one-off-meeting"
+          href="https://meet.brevo.com/lukhanyo-radebe/30-minute-meeting"
           target="_blank" 
         >
           <MagicButton

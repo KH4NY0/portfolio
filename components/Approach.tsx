@@ -32,6 +32,7 @@ const Approach = () => {
           icon={<AceternityIcon order="Phase 2" />}
           des="Implementation begins with an iterative development approach, ensuring transparency through regular progress updates and milestone reviews. You'll have continuous visibility into the development process with opportunities for feedback and refinement at each stage."
         >
+          
           <CanvasRevealEffect
             animationSpeed={3}
             // change bg-black to bg-pink-900
@@ -43,9 +44,7 @@ const Approach = () => {
             ]}
             dotSize={2}
           />
-          {/* Radial gradient for the cute fade */}
-          {/* remove this one */}
-          {/* <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" /> */}
+          
         </Card>
         <Card
           title="Deployment"
